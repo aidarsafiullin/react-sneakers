@@ -52,7 +52,7 @@ const arr = [
   {
     'title': 'Мужские Кроссовки Nike Air Max',
     'price': 15999,
-    'imgUrl': '/img/sneakers/10.jpg'
+    'imgUrl': '/img/sneakers/9.jpg'
   },
   {
     'title': 'Мужские Кроссовки Nike Air Max',
