@@ -3,75 +3,28 @@ import Card from './components/Card/Card';
 import Header from './components/Header';
 import Drawer from './components/Drawer';
 
-const arr = [
-  {
-    'title': 'Мужские Кроссовки Nike Blazer Mid Suede',
-    'price': 12999,
-    'imgUrl': '/img/sneakers/1.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/2.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/3.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/4.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/5.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/6.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Blazer Mid Suede',
-    'price': 12999,
-    'imgUrl': '/img/sneakers/7.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/8.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/9.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/9.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/11.jpg'
-  },
-  {
-    'title': 'Мужские Кроссовки Nike Air Max',
-    'price': 15999,
-    'imgUrl': '/img/sneakers/12.jpg'
-  },
-]
-
-function App() { 
+function App() {
+  const [items, setItems] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
   const [cartOpened, setCartOpened] = React.useState(false);
   
+  React.useEffect(() => {
+    fetch('https://63ffc1b929deaba5cb2b10b7.mockapi.io/items')
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
+
+  const onAddToCart = (obj) => {
+    console.log('obj', obj)
+  }
+
   return <div className='wrapper clear'>
 
-    {cartOpened ? <Drawer onClose={()=> setCartOpened(false)} /> : null}
+    {cartOpened ? <Drawer items={cartItems} onClose={()=> setCartOpened(false)} /> : null}
     <Header onClickCart={()=> setCartOpened(true)} />
 
     <div className='content p-40'>
@@ -84,14 +37,14 @@ function App() {
       </div>
      
       
-      <div className='d-flex'>
-        {arr.map(item => (
+      <div className='d-flex flex-wrap'>
+        {items.map(item => (
           <Card
             title = {item.title}
             price = {item.price}
             imgUrl = {item.imgUrl}
-            onFavorite = {() => console.log('лайк')}
-            onCart = {() => console.log('в корзину')}
+            onFavorite = {() => null}
+            onCart = {(obj) => onAddToCart(obj)}
           />
         ))}
       </div>
