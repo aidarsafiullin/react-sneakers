@@ -6,6 +6,7 @@ import Drawer from './components/Drawer';
 function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setCartOpened] = React.useState(false);
   
   React.useEffect(() => {
@@ -19,7 +20,16 @@ function App() {
   }, []);
 
   const onAddToCart = (obj) => {
-    console.log('obj', obj)
+    setCartItems( prev => {
+      console.log('cartItems', cartItems)
+      console.log('obj', obj)
+      if(cartItems.find(item => item.title === obj.title)) return
+      return [...prev, obj]
+    })
+  };
+
+  const onChangeSearchInput = (event) => {
+    setSearchValue(event.target.value);
   }
 
   return <div className='wrapper clear'>
@@ -38,8 +48,9 @@ function App() {
      
       
       <div className='d-flex flex-wrap'>
-        {items.map(item => (
+        {items.map( (item, index) => (
           <Card
+            key = {index}
             title = {item.title}
             price = {item.price}
             imgUrl = {item.imgUrl}
