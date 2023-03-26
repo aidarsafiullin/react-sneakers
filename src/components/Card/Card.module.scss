@@ -20,6 +20,10 @@
   .favorite {
     position: absolute;
     cursor: pointer;
+    transition: transform 200ms;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &:nth-child(4n) {

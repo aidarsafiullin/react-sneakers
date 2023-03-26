@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "price": 13999,
+      "imgUrl": "/img/sneakers/1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/4.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/5.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/6.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "price": 12999,
+      "imgUrl": "/img/sneakers/7.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/8.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/9.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/9.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/11.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "price": 15999,
+      "imgUrl": "/img/sneakers/12.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "imgUrl": "/img/sneakers/1.jpg",
+      "price": 13999
+    }
+  ],
+  "orders": [],
+  "favorites": [
+    {
+      "id": 2,
+      "parentId": 2,
+      "title": "Мужские Кроссовки Nike Air Max",
+      "imgUrl": "/img/sneakers/2.jpg",
+      "price": 15999
+    }
+  ]
+}
