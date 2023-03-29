@@ -1,31 +1,31 @@
 import React from 'react';
 import axios from 'axios';
 import Info from '../Info';
-import AppContext from '../../context';
 import styles from './Drawer.module.scss';
+import { useCart } from '../hooks/useCart';
 
 const delay = (delay) => new Promise( resolve => setTimeout(resolve, delay));
 
 function Drawer({onClose, onRemove, items = [], opened = false} ) {
-  const {cartItems, setCartItems} = React.useContext(AppContext);
+  const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-  const totalPrice = cartItems.reduce((sum, cur) => cur.price + sum , 0);
 
   const onClickOrder = async () => {
-    const {data} = await axios.post('http://localhost:3001/orders', {
-      items: cartItems
-    });
+    
     try {
       setIsLoading(true);
+      const {data} = await axios.post('http://localhost:3001/orders', {
+        items: cartItems
+      });
       setOrderId(data.id);
       setIsOrderComplete(true);
       setCartItems([]);
 
       for (let index = 0; index < cartItems.length; index++) {
         const item = cartItems[index];
-        await axios.delete('http://localhost:3001/cart' + item.id);
+        await axios.delete('http://localhost:3001/cart/' + item.id);
         await delay(1000);
       }
       
