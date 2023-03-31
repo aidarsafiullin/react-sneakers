@@ -53,7 +53,16 @@ function App() {
         await axios.delete(`http://localhost:3001/cart/${findItem.id}`);
       } else {
         setCartItems( prev => [...prev, obj]);
-        await axios.post('http://localhost:3001/cart', obj);
+        const { data } = await axios.post('http://localhost:3001/cart', obj);
+        setCartItems( prev => prev.map(item => {
+          if(item.parentId === data.parentId) {
+            return {
+              ...item,
+              id: data.id
+            }
+          }
+          return item;
+        }));
       }
       
     } catch(error) {
